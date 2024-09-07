@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  --space-bg: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  --text-color: #ffffff;
+  --header-color: #ffd700;
+  --planet-hover: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--space-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.header {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--header-color);
+}
+
+section {
+  padding: 2rem;
+  margin: 2rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.planet,
+.moon,
+.asteroid-belt,
+.comets,
+.kuiper-belt {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.planet:hover,
+.moon:hover,
+.asteroid-belt:hover,
+.comets:hover,
+.kuiper-belt:hover {
+  background: var(--planet-hover);
+  transform: scale(1.05);
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+.comet {
+  position: fixed;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+  animation: cometMove 10s linear infinite;
+}
+
+@keyframes cometMove {
+  from {
+    transform: translateX(-100px) translateY(0);
+  }
+  to {
+    transform: translateX(calc(100vw + 100px)) translateY(100vh);
+  }
+}
+
+#planetModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.9);
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+}
+
+#planetModal button {
+  background-color: var(--header-color);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#navigation {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#navigation a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+#navigation a:hover {
+  color: var(--header-color);
+}
